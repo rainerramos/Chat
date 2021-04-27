@@ -4,7 +4,10 @@ import 'package:flutter/material.dart';
 void main() async {
   runApp(MyApp());
 
-  Firestore.instance.collection("col").document("doc").setData({"texto": "rainer"});
+  Firestore.instance.collection("mensagens").document("lD8paWrAIDkQ992zyl3R").collection("arquivos").document().setData({
+  "arqname": "foto.png",
+  "read": true
+  });
 }
 
 class MyApp extends StatelessWidget {
