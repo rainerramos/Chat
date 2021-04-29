@@ -6,8 +6,7 @@ void main() async {
 
   QuerySnapshot snapshot = await Firestore.instance.collection("mensagens").getDocuments();
   snapshot.documents.forEach((d) {
-    print(d.data);
-    print(d.documentID);
+    d.reference.updateData({"lido": false});
   });
 }
 
