@@ -4,9 +4,10 @@ import 'package:flutter/material.dart';
 void main() async {
   runApp(MyApp());
 
-  QuerySnapshot snapshot = await Firestore.instance.collection("mensagens").getDocuments();
-  snapshot.documents.forEach((d) {
-    d.reference.updateData({"lido": false});
+  Firestore.instance.collection("mensagens").snapshots().listen((dado) {
+    dado.documents.forEach((d) {
+      print(d.data);
+    });
   });
 }
 
