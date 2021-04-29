@@ -4,9 +4,11 @@ import 'package:flutter/material.dart';
 void main() async {
   runApp(MyApp());
 
-  DocumentSnapshot snapshot = await Firestore.instance.collection("mensagens")
-      .document("lD8paWrAIDkQ992zyl3R").get();
-  print(snapshot.data);
+  QuerySnapshot snapshot = await Firestore.instance.collection("mensagens").getDocuments();
+  snapshot.documents.forEach((d) {
+    print(d.data);
+    print(d.documentID);
+  });
 }
 
 class MyApp extends StatelessWidget {
