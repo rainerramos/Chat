@@ -4,10 +4,9 @@ import 'package:flutter/material.dart';
 void main() async {
   runApp(MyApp());
 
-  Firestore.instance.collection("mensagens").document("lD8paWrAIDkQ992zyl3R").collection("arquivos").document().setData({
-  "arqname": "foto.png",
-  "read": true
-  });
+  DocumentSnapshot snapshot = await Firestore.instance.collection("mensagens")
+      .document("lD8paWrAIDkQ992zyl3R").get();
+  print(snapshot.data);
 }
 
 class MyApp extends StatelessWidget {
