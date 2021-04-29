@@ -4,11 +4,11 @@ import 'package:flutter/material.dart';
 void main() async {
   runApp(MyApp());
 
-  Firestore.instance.collection("mensagens").snapshots().listen((dado) {
-    dado.documents.forEach((d) {
-      print(d.data);
-    });
+  Firestore.instance.collection("mensagens").document("lD8paWrAIDkQ992zyl3R").snapshots().listen((dado) {
+    print(dado.data);
   });
+
+
 }
 
 class MyApp extends StatelessWidget {
